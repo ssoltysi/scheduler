@@ -19,7 +19,6 @@ def my_form_post():
     duration = request.form['duration']
     byes = request.form['byes']
 
-    time = int(time)
     duration = int(duration)
     rounds = int(rounds)
     teams = teams.split()
@@ -30,4 +29,4 @@ def my_form_post():
     return app.send_static_file('test.csv')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

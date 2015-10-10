@@ -9,12 +9,13 @@ def driver(date, time, duration, rounds, teams, byes):
     #day = "2015-10-1"
     #time_of_day = 19
     #duration = 2
-    
-    time = datetime.timedelta(hours=time)
-    duration = datetime.timedelta(hours=duration)
-    date = datetime.datetime.strptime(date, "%Y-%m-%d")
 
-    sg = schedule_generator.ScheduleGenerator(rounds, date + time, duration)
+    date = date + ":" + time
+    #time = datetime.timedelta(hours=time)
+    duration = datetime.timedelta(hours=duration)
+    date = datetime.datetime.strptime(date, "%Y-%m-%d:%H:%M")
+
+    sg = schedule_generator.ScheduleGenerator(rounds, date, duration)
     times = sg.generate_start_times()
     print(times)
 
